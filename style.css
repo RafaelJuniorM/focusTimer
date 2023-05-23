@@ -1,0 +1,104 @@
+*{
+  padding: 0;
+  margin:0;
+  box-sizing: border-box;
+  border: none;
+  background: none;
+  font-family: 'Roboto', sans-serif;;
+}
+
+:root{
+  font-size: 62.5%;
+
+  --text-color: #323238;
+  --color-card-active: #02799D;
+  --color-card-default: #E1E1E6;
+  --color-card-icon: #FFFFFF;
+}
+
+.card.active {
+  background-color: var(--color-card-active);
+  transition: background .3s;
+}
+
+
+main {
+  height: 100vh;
+  max-width: 82rem;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  align-content:center ;
+  align-items: center;
+  justify-items: center;
+  margin: 0 auto;
+}
+
+
+#timer {
+  max-width: 32.1rem;
+  
+}
+
+#timer #clock {
+  font-weight: 500;
+  font-size: 12.6rem;
+  line-height: 14rem;
+  color: var(--text-color);
+
+  max-height: 11.7rem;
+} 
+
+#timer #controls {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 3rem;
+
+  margin-top: 4.8rem;
+}
+
+#controls button{
+  transition: transform .3s;
+}
+
+#controls > button:hover{
+ transform: scale(1.1);
+}
+
+.button-play,.button-pause,.button-plus,.button-reduce{
+  cursor: pointer;
+
+}
+
+
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-template-rows:repeat(2,1fr) ;
+  gap: 3.2rem;
+
+}
+
+.card {
+  max-width: 13.8rem;
+  background-color: var(--color-card-default);
+  padding: 4rem;
+
+  border-radius: 2.4rem;
+  cursor: pointer;
+
+  transition: background .3s;
+  transition: transform .3s;
+}
+
+.card:hover {
+  background-color:#d1d1d4 ;
+  transform: scale(1.05);
+}
+
+.card + .active:hover{
+  background-color: #026786;
+}
+
+.card svg{
+text-align: center;
+}
