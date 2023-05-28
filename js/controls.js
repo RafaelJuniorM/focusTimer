@@ -1,5 +1,14 @@
+import { elements } from "./elements.js";
+import sounds from "./sounds.js";
+
+
+
 export default function controls({
-  minutesDisplay
+  minutesDisplay,
+  cardCoffe,
+  cardFire,
+  cardFlorest,
+  cardRain,
 }) {
   function plusMinutes(){
     minutesDisplay.textContent = String(
@@ -20,9 +29,12 @@ export default function controls({
     }
   }
   
+
+
   return{
     plusMinutes,
-    reduceMinutes
+    reduceMinutes,
+    
   }
 
 }
