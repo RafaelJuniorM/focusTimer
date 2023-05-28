@@ -9,18 +9,23 @@
 
 :root{
   font-size: 62.5%;
+  
+  --bg-color-light: #FFF;
+  --bg-color-dark: #121214;
 
-  --text-color: #323238;
-  --color-card-active: #02799D;
-  --color-card-default: #E1E1E6;
+  --timer-color-light: #323238;
+  --timer-color-dark: #fff;
+
+  --color-card-active-light: #02799D;
+  --color-card-light: #E1E1E6;
   --color-card-icon: #FFFFFF;
-}
+  --color-cardSvg-active-light: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(264deg) brightness(106%) contrast(101%);
 
-.card.active {
-  background-color: var(--color-card-active);
-  transition: background .3s;
-}
+  --color-card-active-dark:#0A3442;
+  --color-card-dark: #29292E;
+  --color-cardSvg-active-dark: brightness(0) saturate(100%) invert(86%) sepia(7%) saturate(199%) hue-rotate(201deg) brightness(93%) contrast(86%);
 
+}
 
 main {
   height: 100vh;
@@ -36,29 +41,32 @@ main {
 
 #timer {
   max-width: 32.1rem;
-  
 }
 
 #timer #clock {
   font-weight: 500;
   font-size: 12.6rem;
   line-height: 14rem;
-  color: var(--text-color);
+  color: var(--timer-color-light);
 
   max-height: 11.7rem;
 } 
 
-#timer #controls {
+ #controls {
   display: grid;
   grid-template-columns: repeat(4,1fr);
   gap: 3rem;
 
   margin-top: 4.8rem;
+
+  
 }
 
 #controls button{
   transition: transform .3s;
+  
 }
+
 
 #controls > button:hover{
  transform: scale(1.1);
@@ -72,33 +80,71 @@ main {
 
 .grid-cards {
   display: grid;
-  grid-template-columns: repeat(2,1fr);
-  grid-template-rows:repeat(2,1fr) ;
+  grid-template-columns: repeat(2,13.8rem);
+  grid-template-rows:repeat(2,13.8rem) ;
   gap: 3.2rem;
 
 }
 
 .card {
-  max-width: 13.8rem;
-  background-color: var(--color-card-default);
-  padding: 4rem;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3.2rem;
+  background-color: var(--color-card-light);
   border-radius: 2.4rem;
+  
   cursor: pointer;
 
   transition: background .3s;
-  transition: transform .3s;
+  
 }
 
 .card:hover {
   background-color:#d1d1d4 ;
-  transform: scale(1.05);
 }
 
-.card + .active:hover{
-  background-color: #026786;
+
+
+.grid-cards button.clicked,
+.grid-cards button.clicked svg path{
+  background-color: var(  --color-card-active-light);
+  transition: .3s;
 }
 
-.card svg{
-text-align: center;
+.grid-cards button.clicked img {
+  filter: var(--color-cardSvg-active-light);
+  transition: .3s;
+}
+
+.card input[type=range]{
+  all: unset;
+  width: 9rem;
+  height: .4rem;
+  border-radius: 5px;
+  background: var(--timer-color-light);
+
+  margin: 0 auto;
+  cursor: pointer;
+  
+}
+
+.card input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background: var(--timer-color-light);
+}
+
+.grid-cards button.clicked input[type=range]{
+  width: 9rem;
+  height: .4rem;
+  border-radius: 5px;
+  background: var(--timer-color-dark);
+}
+
+.grid-cards button.clicked input[type=range]::-webkit-slider-thumb{
+  background: var(--timer-color-dark);
 }
